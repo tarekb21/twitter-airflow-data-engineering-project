@@ -1,0 +1,4 @@
+tweepy==4.14.0
+pandas==2.1.0
+python-dotenv==1.0.0
+s3fs==2023.8.0

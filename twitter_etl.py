@@ -3,13 +3,18 @@ import pandas as pd
 import json
 from datetime import datetime
 import s3fs
+import os
+from dotenv import load_dotenv
 
-# API credentials (consider moving to environment variables for security)
-consumer_key = '733R4I6F9WFB92GDeHu7rzQmG'
-consumer_secret = '7Pxg8GLsecy200ZEvP8KonEtI4vcTbVOYkkwZYA72FjaLXu0uL'
-access_token = '1782750523717750785-CjOT6QtIKNRybxp8M8p1tx0y5y4xQR'
-access_token_secret = 'jbRDo4MxjpdCFN9e5ZkjqDeaMxopVbW9iKcsgHx3f5o8T'
-bearer_token = 'AAAAAAAAAAAAAAAAAAAAAIDbtQEAAAAAsMTQjTxekoUZzX8OkKMCquNIGgs%3DGdX4rfTr8IdwHYuRdtbislLt5W528Sx3fXN6cmlCwKdAGb9H6d'
+# Load environment variables from .env file
+load_dotenv()
+
+# API credentials from environment variables
+consumer_key = os.getenv('CONSUMER_KEY')
+consumer_secret = os.getenv('CONSUMER_SECRET')
+access_token = os.getenv('ACCESS_TOKEN')
+access_token_secret = os.getenv('ACCESS_TOKEN_SECRET')
+bearer_token = os.getenv('BEARER_TOKEN')
 
 # Twitter API v2 authentication
 client = tweepy.Client(
